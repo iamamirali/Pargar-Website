@@ -1,0 +1,10 @@
+<div class="header-items-container">
+    <div class="header-list">
+        <div *ngIf = 'headerList' class="header-item">
+            <img *ngFor = 'let avatar of headerAvatars' src="{{avatar}}" alt="" class="header-img">
+            <h4 class="header-title" *ngFor = 'let item of headerList'>
+                {{ item.name }}
+            </h4>
+        </div>
+    </div>
+</div>

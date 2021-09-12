@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<app-authorization></app-authorization>
+<div class="profile-container">
+    <div class="profile-info">
+        <img [src]="userAvatar" class="profile-avatar">
+        <h2 class="user-nickname">{{ userNickname }}</h2>
+    </div>
+
+    <div class="profile-action-btns">
+        <button class="btn-logout" [routerLink] = '["/"]' (click) = 'onLogoutClick()'>خروج از حساب کاربری</button>
+    </div>
+</div>
