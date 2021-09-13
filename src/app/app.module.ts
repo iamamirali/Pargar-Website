@@ -6,19 +6,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './modules/home/home.module';
+import { LoadingModule } from './modules/shared/loading/loading.module';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthorizationComponent } from './components/authorization/authorization.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { LoadingModule } from './modules/shared/loading/loading.module';
+import { LayoutModule } from './modules/layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     AuthorizationComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +23,8 @@ import { LoadingModule } from './modules/shared/loading/loading.module';
     HttpClientModule,
     FormsModule,
     LoadingModule,
-    HomeModule
+    HomeModule,
+    LayoutModule
   ],
   providers: [
     {

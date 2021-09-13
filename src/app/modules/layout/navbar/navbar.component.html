@@ -1,0 +1,52 @@
+<nav class="navbar">
+    <div class="navbar-right-side">
+        <img [routerLink] = "['/']" src="http://pargar.ir/assets/img/logo_.png" alt="pargar" class="navbar-brand">
+
+        <div name="category" id="category" class="navbar-category-container">
+            <div (click) = "isCategoryClicked = !isCategoryClicked">
+                دسته بندی ها
+            </div>
+
+            <div *ngIf='isCategoryClicked' class="navbar-category">
+                <div *ngFor='let category of categories'>
+                    <div class="nav-cat-item">
+                        {{ category.title }}
+
+                        <div *ngIf='isCategoryClicked' class="navbar-child-category" >
+                            <div *ngFor='let childCategory of category.childs'>
+                                <div class="nav-child-cat-item">
+                                    {{ childCategory.title }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-searchbar">
+            <input type="text" name="search" id="search" placeholder="جستجو کنید">
+        </div>
+
+        <div class="navbar-guide-title">
+            <h3 class="navbar-guide">راهنمای پرگار</h3>
+        </div>
+    </div>
+
+    <div class="navbar-left-side">
+        <button class="btn-teaching">در پرگار درس بدهید</button>
+
+        <div *ngIf = '!isLoggedIn' class="myAccount-dropdown">
+            <button class="btn-dropdown">حساب من</button>
+            <div class="dropdown-items">
+                <a (click) = 'onSignClick()'>ورود/ثبت نام رایگان</a>
+                <br>
+                <a href="#">کد هدیه</a>
+            </div>
+        </div>
+
+        <button *ngIf = 'isLoggedIn' class="btn-dropdown">کاربر اشتراکی شوید</button>
+
+        <button *ngIf = 'isLoggedIn' class="btn-user-avatar" [routerLink]="['/profile']"><img [src]='userAvatar' alt=""></button>
+    </div>
+</nav>
