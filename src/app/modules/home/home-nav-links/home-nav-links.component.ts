@@ -8,7 +8,7 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
   styleUrls: ['./home-nav-links.component.scss']
 })
 
-export class NavLinksComponent implements OnInit {
+export class HomeNavLinksComponent implements OnInit {
 
   navbarLinks : ParentCategory[] = []
 

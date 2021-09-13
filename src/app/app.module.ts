@@ -5,33 +5,28 @@ import { InterceptorService } from './services/interceptor.service';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './modules/home/home.module';
+
 import { AppComponent } from './app.component';
-import { HeaderItemsComponent } from './components/header-items/header-items.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NavLinksComponent } from './components/navbar/nav-links/nav-links.component';
 import { AuthorizationComponent } from './components/authorization/authorization.component';
-import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { HomeProductsComponent } from './components/home/home-products/home-products.component';
 import { LoadingModule } from './modules/shared/loading/loading.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderItemsComponent,
     NavbarComponent,
-    NavLinksComponent,
     AuthorizationComponent,
-    HomeComponent,
     ProfileComponent,
-    HomeProductsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    LoadingModule
+    LoadingModule,
+    HomeModule
   ],
   providers: [
     {

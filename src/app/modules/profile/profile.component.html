@@ -1,4 +1,3 @@
-<app-authorization></app-authorization>
 <div class="profile-container">
     <div class="profile-info">
         <img [src]="userAvatar" class="profile-avatar">
@@ -9,3 +8,4 @@
         <button class="btn-logout" [routerLink] = '["/"]' (click) = 'onLogoutClick()'>خروج از حساب کاربری</button>
     </div>
 </div>
+<router-outlet></router-outlet>

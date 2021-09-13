@@ -3,12 +3,12 @@ import { Avatar, Headeritem } from 'src/app/models/home.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
-  selector: 'app-header-items',
+  selector: 'app-home-header-items',
   templateUrl: './home-header-items.component.html',
   styleUrls: ['./home-header-items.component.scss']
 })
 
-export class HeaderItemsComponent implements OnInit {
+export class HomeHeaderItemsComponent implements OnInit {
 
   headerList : Headeritem[] = []
 

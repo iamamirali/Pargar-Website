@@ -28,15 +28,19 @@ export class AuthorizationComponent implements OnInit {
   constructor(private auth : AuthorService, private router : Router) { }
 
   ngOnInit(): void {
+    // shows login box if the user clicks login btn
     this.auth.subjectSignClick.subscribe((status) => {
       this.isClicked = status
     })
   }
 
+  // hides login box by clicking close btn
   onCloseBtnClick() {
     this.isClicked = false
   }
 
+
+  // sets post number request, after clicking btn
   onReceiveCodeClick() {
     this.auth.sendMobileNum(this.mobileNumber).subscribe((data)=> {
       if(data.message) {
@@ -51,6 +55,7 @@ export class AuthorizationComponent implements OnInit {
     )
   }
 
+  // sets authentication code to request, after clicking btn
   onSendCodeClick() {
     this.auth.sendAuthCode(this.mobileNumber, this.authCode).subscribe((data) => {
       this.auth.setToken(data.token)
