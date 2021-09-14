@@ -1,0 +1,82 @@
+@import './../../../../assets/styles/style.scss';
+
+.footer-container {
+    border-top: 1px solid $grayColor;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 20px 50px;
+}
+
+.site-links {
+    .site-links-list {
+        list-style: none;
+        text-align: right;
+
+        li {
+            padding-top: 5px;
+            
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.signs-container {
+    text-align: center;
+    padding-right: 200px;
+
+    .btn-teach {
+        @include green-btn-outline;
+        margin: 10px 0px;
+        width: 250px;
+        height: 35px;
+        border: 2px solid $greenColor;
+    }
+    .btn-teach:hover {
+        background-color: $greenColor;
+        color: white;
+    }
+}
+
+.social-container {
+    .social-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 12px;
+
+        .social-title {
+            text-align: right;
+            margin-left: 20px;
+        }
+
+        .icons {
+            direction: ltr;
+            a {
+                margin: 3px;
+            }
+        }
+    }
+
+    .app-stores {
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: 1fr;
+        grid-gap: 5px;
+
+        div {
+            display: flex;
+            flex-direction: row-reverse;
+
+            a {
+                margin-left: 12px;
+            }
+        }
+    }
+}

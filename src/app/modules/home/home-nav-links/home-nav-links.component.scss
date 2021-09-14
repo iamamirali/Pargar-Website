@@ -2,11 +2,39 @@
     background-color: white;
     width: 100%;
 
-    .navlink-list{
+    .navlinks-list{
         display: flex;
         justify-content: space-between;
         margin: auto;
         max-width: 1200px;
         list-style: none;
+        position: relative;
+
+        .navlinks-item {
+            padding: 15px 19px;
+            background-color: red;
+        }
+
+        .navlinks-item:hover .child-links-container {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            display: block;
+            width: 1200px;
+            background-color: white;
+            text-align: center;
+            margin: auto;
+        }
+
+        .child-links-container {
+            display: none;
+
+            .nav-child-item {
+                display: inline-block;
+                padding: 10px;
+                text-align: center;
+                margin: auto;
+            }
+        }
     }
 }

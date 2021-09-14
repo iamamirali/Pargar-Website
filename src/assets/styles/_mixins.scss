@@ -1,0 +1,21 @@
+@import "variables";
+
+@mixin green-btn {
+    background-color: $greenColor;
+    color: white;
+    border: 1px solid $greenColor;
+    border-radius: 18px;
+    padding: 5px;
+    width: 200px;
+    transition: background 0.2s;
+}
+
+@mixin green-btn-outline {
+    border: 1px solid $greenColor;
+    background: none;
+    border-radius: 18px;
+    color: $greenColor;
+    padding: 5px;
+    width: 200px;
+    transition: background 0.2s;
+}

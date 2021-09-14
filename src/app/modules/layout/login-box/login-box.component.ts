@@ -3,11 +3,11 @@ import { AuthorService } from 'src/app/services/author.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-authorization',
-  templateUrl: './authorization.component.html',
-  styleUrls: ['./authorization.component.scss']
+  selector: 'app-login-box',
+  templateUrl: './login-box.component.html',
+  styleUrls: ['./login-box.component.scss']
 })
-export class AuthorizationComponent implements OnInit {
+export class LoginBoxComponent implements OnInit {
 
   isClicked : boolean = false
 

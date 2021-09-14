@@ -1,0 +1,15 @@
+@import './../../../../assets/styles/style.scss';
+
+.container {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.btn-back-home {
+    @include green-btn;
+    margin-top: 20px;
+}
+
+.btn-back-home:hover {
+    @include green-btn-outline;
+}
