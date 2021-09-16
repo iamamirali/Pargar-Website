@@ -16,6 +16,8 @@ export class HomeNavLinksComponent implements OnInit {
   ngOnInit(): void {
     this.dataFetch.getNavChildren().subscribe((data) => {
       this.navbarLinks = data
+      console.log(data);
+      
     })
   }
 

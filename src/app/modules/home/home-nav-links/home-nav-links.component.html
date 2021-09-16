@@ -1,19 +1,21 @@
 <div class="navlinks-container">
     <div class="navlinks-list">
-        <div class="navlinks-item" *ngFor = 'let category of navbarLinks'>
-            <a href="" *ngIf='category.is_visible'>
-                {{ category.title }}
-            </a>
+        <ul *ngFor='let category of navbarLinks'>
+            <ng-template *ngIf='category' class="navlinks-item">
+                <a href="" >
+                    {{ category.title }}
+                </a>
 
-            <br>
-            
-            <div class="child-links-container">
-                <div class="nav-child-item" *ngFor='let childLink of category.childs'>
-                    <a href="" *ngIf='childLink.is_visible'>
-                        {{ childLink.title }}
-                    </a>
-                </div>
-            </div>
-        </div>
+                <br>
+                
+                <ul class="child-links-container">
+                    <li class="nav-child-item" *ngFor='let childLink of category.childs'>
+                        <a href="" *ngIf='childLink.is_visible'>
+                            {{ childLink.title }}
+                        </a>
+                    </li>
+                </ul>
+            </ng-template>
+        </ul>
     </div>
 </div>

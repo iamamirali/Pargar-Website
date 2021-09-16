@@ -1,75 +1,130 @@
-$grayBorder: rgb(177, 177, 177);
-$grayColor: rgb(110, 110, 110);
-$greenColor: #37b34a;
+@import './../../../../assets/styles/style.scss';
 
 .navbar {
   background-color: white;
   width: 100%;
   min-height: 50px;
   align-items: center;
+  justify-content: space-between;
   display: flex;
+  font-size: 12px;
+  position: fixed;
+  top: 0%;
+  z-index: 10000;
 
   padding: {
     top: 10px;
     bottom: 10px;
   }
 
-  justify-content: space-between;
   border-bottom: 1px solid $grayBorder;
+  margin: {
+    bottom: 24px;
+  }
 }
 
 .navbar-right-side {
   display: flex;
-
   padding: {
     right: 50px;
     left: 50px;
   }
-
   justify-content: space-between;
 
   .navbar-brand {
     width: 50px;
+    height: 30px;
+    margin-top: 8px;
     padding-left: 20px;
     border-left: 1px solid $grayBorder;
     cursor: pointer;
   }
 
   .navbar-category-container {
+    position: relative;
     border: none;
     color: $grayColor;
+    font-size: 14px;
     margin: {
       right: 20px;
-      left: 20px
+      left: 36px;
+      top: 12px;
     }
+    cursor: pointer;
 
+    i {
+      position: absolute;
+      font-size: 1.1rem;
+      padding: 4px 8px 0px 0px;
+    }
+    
     .navbar-category {
       position: absolute;
       text-align: right;
-      right: 10%;
+      right: 14%;
+      top: 45px;
+      width: 180px;
+      background-color: white;
+    }
+    
+    .nav-cat-item {
+      padding: 4px 8px;
+      width: 100%;
+    }
+    
+    .nav-cat-item:hover {
+      background-color: $milkyColor;
     }
     
     .nav-cat-item:hover .navbar-child-category {
       display: block;
+      position: absolute;
+      width: 180px;
+      margin-top: -26px;
+      right: 100%;
+      background-color: $milkyColor;
     }
 
     .navbar-child-category {
       display: none;
-      // position: absolute;
+
+      .nav-child-cat-item {
+        padding: 4px 10px;
+      }
+      .nav-child-cat-item:hover {
+        background-color: white;
+      }
     }
   }
 
   .navbar-searchbar {
+    position: relative;
+    direction: ltr;
     width: 400px;
-    padding: 5px;
+    padding: 5px 8px;
     border: 1px solid $grayBorder;
-    border-radius: 20px;
+    border-radius: 24px;
 
     input {
       text-align: right;
       width: 350px;
       padding: 5px;
-      border-style: none
+      border-style: none;
+      outline: none;
+    }
+
+    .btn-search {
+      position: absolute;
+      top: 10px;
+      rotate: 90deg;
+      margin-left: 4px;
+      background: none;
+      border: none;
+
+      i {
+        font-size: 1.2rem;
+        color: $greenColor;
+      }
     }
 
   }
@@ -77,11 +132,14 @@ $greenColor: #37b34a;
   .navbar-guide {
     margin: {
       right: 30px;
-      top: 8px;
+      top: 10px;
     }
-
+    cursor: pointer;
     font-weight: 100;
-    color: $grayColor;
+    
+    a {
+      color: $grayColor;
+    }
   }
 }
 
@@ -91,83 +149,103 @@ $greenColor: #37b34a;
   @extend .navbar-right-side;
 
   .btn-teaching {
-    border: 2px solid $greenColor;
-    background: none;
-    color: $greenColor;
+    @include green-btn-outline;
     border-radius: 18px;
-    padding: 5px 10px;
-    margin-left: 20px;
-    transition: background 0.2s;
-  }
+    margin: {
+      left: 20px;
+      top: 2px;
+    }
+    height: 35px;
+    width: 130px;
 
+    a { color: $greenColor; }
+  }
+  
   .btn-teaching:hover {
-      background-color: $greenColor;
-      color: white;
+    @include green-btn;
+    width: 130px;
+    a { color: white; }
   }
 
-  .btn-dropdown {
-    background-color: $greenColor;
-    border-radius: 18px;
-    padding: 10px 25px;
-    color: white;
-    border-style: none;
-    border: 2px solid $greenColor;
-    transition: background 0.2s;
+  .btn-myAccount {
+    @include green-btn;
+    position: relative;
+    height: 35px;
+    width: 100px;
+    margin: {
+      top: 2px;
+      left: 14px;
+    }
+    padding-left: 24px;
+
+    i {
+      position: absolute;
+      top: 5px;
+      font-size: 1rem;
+      padding: 4px 4px 0px 0px;
+    }
   }
   
   .myAccount-dropdown {
     position: relative;
     display: inline-block;
-
-
+    
+    
     .dropdown-items {
       display: none;
       position: absolute;
+      right: -16px;
       background-color: #f8f8f8;
       text-align: right;
-      min-width: 160px;
+      width: 120px;
       padding: 10px;
       box-shadow: 0px 5px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
     }
-
+    
     .dropdown-items a {
       display: block;
       text-decoration: none;
       cursor: pointer;
       color: $grayColor;
     }
-
+    
     .dropdown-items a:hover {
       color: black;
       text-decoration: none;
       display: block;
     }
   }
-
+  
   .myAccount-dropdown:hover .dropdown-items {
     display: block;
   }
 
-  .myAccount-dropdown:hover .btn-dropdown {
+  .myAccount-dropdown:hover .btn-myAccount {
     background: none;
     color: $greenColor;
   }
 
-  .btn-dropdown {
-    background-color: $greenColor;
+  .btn-subscribe {
+    @include green-btn;
     border-radius: 18px;
-    padding: 10px 10px;
-    color: white;
-    border-style: none;
-    border: 2px solid $greenColor;
-    transition: background 0.2s;
+    margin: {
+      left: 20px;
+      top: 2px;
+    }
+    height: 35px;
+    width: 130px;
+  }
+  .btn-subscribe:hover {
+    @include green-btn-outline;
+    height: 35px;
+    width: 130px
   }
 
   .btn-user-avatar {
     background: none;
     border-style: none;
     margin-right: 20px;
+    margin-top: 4px;
 
     img {
       width: 30px;

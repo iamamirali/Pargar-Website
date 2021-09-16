@@ -1,4 +1,4 @@
-<div class="header-items-container">
+<!-- <div class="header-items-container">
     <div class="header-list">
         <div *ngIf = 'headerList' class="header-item">
             <img *ngFor = 'let avatar of headerAvatars' src="{{avatar}}" alt="" class="header-img">
@@ -7,4 +7,15 @@
             </h4>
         </div>
     </div>
+</div> -->
+
+<div class="slick-wrapper">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let item of headerList" class="slide">
+        <img src="{{item.feature_avatar.hdpi}}" alt="" class="header-img">
+                <h4 class='header-title'>
+                    {{ item.name }}
+                </h4>
+    </div>
+    </ngx-slick-carousel>
 </div>

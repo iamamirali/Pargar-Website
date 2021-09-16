@@ -4,7 +4,7 @@
 
         <div name="category" id="category" class="navbar-category-container">
             <div (click) = "isCategoryClicked = !isCategoryClicked">
-                دسته بندی ها
+                دسته بندی ها <i class="fas fa-angle-down"></i>
             </div>
 
             <div *ngIf='isCategoryClicked' class="navbar-category">
@@ -26,18 +26,27 @@
 
         <div class="navbar-searchbar">
             <input type="text" name="search" id="search" placeholder="جستجو کنید">
+            <button class="btn-search">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
 
         <div class="navbar-guide-title">
-            <h3 class="navbar-guide">راهنمای پرگار</h3>
+            <h3 class="navbar-guide">
+                <a href="http://pargar.ir/intro">
+                    راهنمای پرگار
+                </a>
+            </h3>
         </div>
     </div>
 
     <div class="navbar-left-side">
-        <button class="btn-teaching">در پرگار درس بدهید</button>
+        <button class="btn-teaching">
+            <a href="http://panel.pargar.ir/">در پرگار درس بدهید</a>
+        </button>
 
         <div *ngIf = '!isLoggedIn' class="myAccount-dropdown">
-            <button class="btn-dropdown">حساب من</button>
+            <button class="btn-myAccount">حساب من <i class="fas fa-angle-down"></i></button>
             <div class="dropdown-items">
                 <a (click) = 'onSignClick()'>ورود/ثبت نام رایگان</a>
                 <br>
@@ -45,7 +54,7 @@
             </div>
         </div>
 
-        <button *ngIf = 'isLoggedIn' class="btn-dropdown">کاربر اشتراکی شوید</button>
+        <button *ngIf = 'isLoggedIn' class="btn-subscribe">کاربر اشتراکی شوید</button>
 
         <button *ngIf = 'isLoggedIn' class="btn-user-avatar" [routerLink]="['/profile']"><img [src]='userAvatar' alt=""></button>
     </div>

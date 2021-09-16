@@ -11,6 +11,7 @@
     justify-content: space-between;
     margin: 10px auto;
     padding: 20px 50px;
+    font-size: 14px;
 }
 
 .site-links {
@@ -28,6 +29,10 @@
     }
 }
 
+.site-links-list > li > a:hover {
+    color: $grayColor;
+}
+
 .signs-container {
     text-align: center;
     padding-right: 200px;
@@ -38,10 +43,17 @@
         width: 250px;
         height: 35px;
         border: 2px solid $greenColor;
+
+        a {
+            color: $greenColor;
+        }
     }
     .btn-teach:hover {
         background-color: $greenColor;
-        color: white;
+
+        a {
+            color: white;
+        }
     }
 }
 
@@ -54,6 +66,10 @@
         .social-title {
             text-align: right;
             margin-left: 20px;
+
+            p {
+                font-size: 12px;
+            }
         }
 
         .icons {

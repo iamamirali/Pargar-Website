@@ -17,13 +17,21 @@ export class HomeHeaderItemsComponent implements OnInit {
   constructor(private dataFetch : DataProccessService) {
   }
 
+  slideConfig = {
+    "slidesToShow": 3,
+    "slidesToScroll": 1,
+    "dots": false,
+    "arrows": false,
+    "autoplay": true,
+    "autoplaySpeed": 7000,
+    "infinite": true,
+    "centerMode": true,
+    "rtl": true,
+  };
+
   ngOnInit(): void {
     this.dataFetch.getHomeData().subscribe((data) => {
         this.headerList = data.headeritem
-        
-        this.headerList.forEach((item) => {
-          this.headerAvatars.push(item.feature_avatar.hdpi)
-      })
     })
   }
 }
