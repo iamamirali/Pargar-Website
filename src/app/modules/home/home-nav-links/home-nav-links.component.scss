@@ -1,6 +1,10 @@
+@import './../../../../assets/styles/style.scss';
+
 .navlinks-container {
     background-color: white;
     width: 100%;
+    position: sticky;
+    top: 0%;
 
     .navlinks-list{
         display: flex;
@@ -12,12 +16,12 @@
 
         .navlinks-item {
             padding: 15px 19px;
-            background-color: red;
+            color: $grayColor;
         }
 
         .navlinks-item:hover .child-links-container {
             position: absolute;
-            top: 40px;
+            top: 45px;
             right: 0;
             display: block;
             width: 1200px;
@@ -34,6 +38,10 @@
                 padding: 10px;
                 text-align: center;
                 margin: auto;
+            }
+
+            .nav-child-item:hover {
+                background-color: yellowgreen;
             }
         }
     }

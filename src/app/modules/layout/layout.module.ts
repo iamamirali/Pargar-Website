@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TopBannerComponent } from './top-banner/top-banner.component';
 
 
 
@@ -14,7 +15,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     NavbarComponent,
     LoginBoxComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TopBannerComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   exports: [
     NavbarComponent,
     FooterComponent,
-    LoginBoxComponent
+    LoginBoxComponent,
+    TopBannerComponent
   ]
 })
 export class LayoutModule { }

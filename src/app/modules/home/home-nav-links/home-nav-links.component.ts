@@ -17,7 +17,6 @@ export class HomeNavLinksComponent implements OnInit {
     this.dataFetch.getNavChildren().subscribe((data) => {
       this.navbarLinks = data
       console.log(data);
-      
     })
   }
 
