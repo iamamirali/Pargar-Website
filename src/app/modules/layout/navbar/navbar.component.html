@@ -9,13 +9,15 @@
 
             <div *ngIf='isCategoryClicked' class="navbar-category">
                 <div *ngFor='let category of categories'>
-                    <div class="nav-cat-item">
-                        {{ category.title }}
+                    <div *ngIf='category.is_visible'>
+                        <div class="nav-cat-item">
+                            {{ category.title }}
 
-                        <div *ngIf='isCategoryClicked' class="navbar-child-category" >
-                            <div *ngFor='let childCategory of category.childs'>
-                                <div class="nav-child-cat-item">
-                                    {{ childCategory.title }}
+                            <div *ngIf='isCategoryClicked && category.is_visible' class="navbar-child-category" >
+                                <div *ngFor='let childCategory of category.childs'>
+                                    <div class="nav-child-cat-item">
+                                        {{ childCategory.title }}
+                                    </div>
                                 </div>
                             </div>
                         </div>

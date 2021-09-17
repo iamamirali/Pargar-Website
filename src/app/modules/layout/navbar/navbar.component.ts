@@ -25,11 +25,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     // get navBar links
     this.dataFetch.getNavChildren().subscribe((data) => {
-      const newData = data
-      newData.shift()
-      newData.pop()
-      this.categories = newData
-      console.log(newData);
+      this.categories = data
     })
 
     // set login status
