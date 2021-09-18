@@ -17,13 +17,18 @@
     width: 98%;
 }
 
-.header-title {
+.header-title-container {
     position: absolute;
-    bottom: 16px;
-    width: 100%;
-    right: 0%;
-    text-align: center;
-    margin: auto;
-    color: white;
-    z-index: 3;
+    width: 90%;
+    background-color: red;
+    
+    .header-title {
+        position: absolute;
+        bottom: 16px;
+        width: 100%;
+        right: 0%;
+        text-align: center;
+        margin: auto;
+        color: white;
+    }
 }

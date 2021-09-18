@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HomeModule } from './modules/home/home.module';
-import { LoadingModule } from './modules/shared/loading/loading.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LoadingModule,
     HomeModule,
     LayoutModule,
     BrowserAnimationsModule

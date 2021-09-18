@@ -9,6 +9,9 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 })
 export class ProfileComponent implements OnInit {
 
+  isSubsClicked: boolean = false;
+  isFavClicked: boolean = true;
+
   userAvatar : string = ''
 
   userNickname : string = ''
@@ -28,5 +31,15 @@ export class ProfileComponent implements OnInit {
   onLogoutClick() {
     this.auth.subjectLoginStatus.next(false)
     this.auth.setToken('')
+  }
+
+  onFavClick() {
+    this.isFavClicked = true;
+    this.isSubsClicked = false
+  }
+
+  onSubsClick() {
+    this.isFavClicked = false;
+    this.isSubsClicked = true
   }
 }

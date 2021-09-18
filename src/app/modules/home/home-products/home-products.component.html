@@ -1,8 +1,35 @@
 <div class="home-products-container">
     <div *ngFor="let item of sectionList" class="home-products">
-        <div class="product-item" *ngFor="let product of item.products">
-            <img class="product-img" src="{{ product.feature_avatar.xhdpi }}" alt="{{ product.name }}">
-            <h4 class="product-title">{{ product.name }}</h4>
-        </div>
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" *ngIf='item.row_type == "normal"'>
+                <div ngxSlickItem  class="slide" *ngFor="let product of item.products">
+                    <div class="normal-product">
+                        <img class="product-img" src="{{ product.feature_avatar.hdpi }}" alt="{{ product.name }}" width="100%">
+                        <h5 class="product-title">{{ product.name}}</h5>
+                        <div class="product-extra-info">
+                            <p>{{ product.producer_name }}</p>
+                            <div class="product-rating">
+                                <p>{{product.total_view}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
     </div>
 </div>
+
+<!-- <div class="home-products-container">
+    <div *ngFor="let item of sectionList" class="home-products">
+        <div class="product-item" *ngFor="let product of item.products">
+            
+            <div class="normal-product" *ngIf='item.row_type == "normal" '>
+                <img class="product-img" src="{{ product.feature_avatar.xhdpi }}" alt="{{ product.name }}">
+                <h4 class="product-title">hello</h4>
+            </div>
+
+            <div class="featrue-product" *ngIf='item.row_type == "feature" '>
+                <img class="product-img" src="{{ product.feature_avatar.xhdpi }}" alt="{{ product.name }}">
+                <h4 class="product-title">bye</h4>
+            </div>
+        </div>
+    </div>
+</div> -->

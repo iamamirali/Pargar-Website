@@ -13,9 +13,12 @@
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let item of headerList" class="slide">
         <img src="{{item.feature_avatar.hdpi}}" alt="" class="header-img">
-                <h4 class='header-title'>
-                    {{ item.name }}
-                </h4>
+
+        <div class="header-title-container">
+            <h4 class='header-title'>
+                {{ item.name }}
+            </h4>
+        </div>
     </div>
     </ngx-slick-carousel>
 </div>

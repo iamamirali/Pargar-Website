@@ -5,7 +5,17 @@
     </div>
 
     <div class="profile-action-btns">
+        <button class="btn-edit">ویرایش اطلاعات کاربری</button>
         <button class="btn-logout" [routerLink] = '["/"]' (click) = 'onLogoutClick()'>خروج از حساب کاربری</button>
+    </div>
+
+    <div class="profile-items">
+        <button class="btn-favorite" (click)='onFavClick()'>علاقه مندی ها</button>
+        <button class="btn-subscription" (click)='onSubsClick()'>وضعیت اشتراک</button>
+        <div *ngIf='isFavClicked' class="favorite">
+            <p>شما هیچ محصولی را نشان نکرده اید.</p>
+        </div>
+        <div *ngIf='isSubsClicked' class="subscription"></div>
     </div>
 </div>
 <router-outlet></router-outlet>

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import { FormsModule } from '@angular/forms';
+
+import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginBoxComponent } from './login-box/login-box.component';
-import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './loading/loading.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TopBannerComponent } from './top-banner/top-banner.component';
-
 
 
 @NgModule({
@@ -16,18 +18,21 @@ import { TopBannerComponent } from './top-banner/top-banner.component';
     NavbarComponent,
     LoginBoxComponent,
     NotFoundComponent,
-    TopBannerComponent
+    TopBannerComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     NavbarComponent,
     FooterComponent,
     LoginBoxComponent,
-    TopBannerComponent
+    TopBannerComponent,
+    LoadingComponent
   ]
 })
 export class LayoutModule { }

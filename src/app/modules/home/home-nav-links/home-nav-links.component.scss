@@ -1,10 +1,15 @@
 @import './../../../../assets/styles/style.scss';
 
+
 .navlinks-container {
     background-color: white;
     width: 100%;
     position: sticky;
-    top: 0%;
+    position: -webkit-sticky;
+    top: 70px;
+    margin-bottom: 20px;
+    z-index: 1000;
+    // height: 50px;
 
     .navlinks-list{
         display: flex;
@@ -16,18 +21,30 @@
 
         .navlinks-item {
             padding: 15px 19px;
-            color: $grayColor;
+            
+            a {
+                color: $grayColor;
+            }
+
+            a:hover {
+                color: $greenColor;
+            }
+        }
+
+        .navlinks-item:hover {
+            border-bottom: 1px solid $greenColor;
         }
 
         .navlinks-item:hover .child-links-container {
             position: absolute;
-            top: 45px;
+            top: 56px;
             right: 0;
             display: block;
             width: 1200px;
             background-color: white;
             text-align: center;
             margin: auto;
+            height: 55px;
         }
 
         .child-links-container {
@@ -35,13 +52,15 @@
 
             .nav-child-item {
                 display: inline-block;
-                padding: 10px;
+                padding: 14px;
                 text-align: center;
                 margin: auto;
+                color: $grayColor;
             }
 
             .nav-child-item:hover {
-                background-color: yellowgreen;
+                border-bottom: 3px solid $greenColor;
+                color: $greenColor;
             }
         }
     }
