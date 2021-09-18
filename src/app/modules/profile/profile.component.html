@@ -1,21 +1,33 @@
-<div class="profile-container">
-    <div class="profile-info">
-        <img [src]="userAvatar" class="profile-avatar">
-        <h2 class="user-nickname">{{ userNickname }}</h2>
-    </div>
+<div class="main-container">
+    <div class="profile-container">
+        <div class="profile-info-container">
+            <div class="profile-info">
+                <img [src]="userAvatar" alt="avatar" class="profile-avatar">
+                <h2 class="user-nickname">{{ userNickname }}</h2>
+            </div>
 
-    <div class="profile-action-btns">
-        <button class="btn-edit">ویرایش اطلاعات کاربری</button>
-        <button class="btn-logout" [routerLink] = '["/"]' (click) = 'onLogoutClick()'>خروج از حساب کاربری</button>
-    </div>
-
-    <div class="profile-items">
-        <button class="btn-favorite" (click)='onFavClick()'>علاقه مندی ها</button>
-        <button class="btn-subscription" (click)='onSubsClick()'>وضعیت اشتراک</button>
-        <div *ngIf='isFavClicked' class="favorite">
-            <p>شما هیچ محصولی را نشان نکرده اید.</p>
+            <div class="profile-action-btns">
+                <button class="btn-edit">ویرایش اطلاعات کاربری</button>
+                <button class="btn-premium">کاربر ویژه شوید</button>
+                <button class="btn-logout" [routerLink] = '["/"]' (click) = 'onLogoutClick()'>
+                    <i class="fas fa-sign-out-alt"></i>
+                    خروج از حساب کاربری
+                </button>
+            </div>
         </div>
-        <div *ngIf='isSubsClicked' class="subscription"></div>
+
+        <div class="profile-items">
+            <button class="btn-favorite" [ngStyle]='{"border-bottom": isFavClicked ? "3px solid white" : "none"}' (click)='onFavClick()'>علاقه مندی ها</button>
+            <button class="btn-subscription" [ngStyle]='{"border-bottom": isSubsClicked? "3px solid white" : "none"}' (click)='onSubsClick()'>وضعیت اشتراک</button>
+        </div>
+
     </div>
+</div>
+<div *ngIf='isFavClicked' class="favorite">
+    <p>شما هیچ محصولی را نشان نکرده اید.</p>
+</div>
+<div *ngIf='isSubsClicked' class="subscription">
+    <p>شما مشترک پرگار نیستید</p>
+    <button class="btn-premium-user">کاربر ویژه شوید!</button>
 </div>
 <router-outlet></router-outlet>

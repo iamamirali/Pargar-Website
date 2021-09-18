@@ -1,5 +1,99 @@
 @import './../../../assets/styles/style.scss';
 
-.profile-container {
+.main-container {
     background-color: $greenColor;
+    
+    .profile-container {
+        margin: 48px auto 0px auto;
+        max-width: 1200px;
+        padding: 48px 12px 0px 12px;
+        color: white;
+    
+        .profile-info-container {
+            display: flex;
+            justify-content: space-between;
+
+            .profile-info {
+                .profile-avatar {
+                    width: 80px;
+                    margin: 12px 24px 12px 8px;
+                }
+            }
+
+            .profile-action-btns {
+                display: flex;
+                flex-direction: column;
+                
+                .btn-edit {
+                    background: none;
+                    cursor: pointer;
+                    border: 1px solid white;
+                    color: white;
+                    padding: 6px 12px;
+                    margin: 12px;
+                    border-radius: 24px;
+                    font-size: 1rem;
+                }
+
+                .btn-premium {
+                    @extend .btn-edit;
+                    background-color: white;
+                    color: $greenColor;
+                    margin-top: 0px;
+                }
+                
+                .btn-logout {
+                    cursor: pointer;
+                    position: relative;
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 0.85rem;
+                    margin-right: 18px;
+
+                    i {
+                        position: absolute;
+                        top: 1px;
+                        right: 6px;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        .profile-items {
+            margin-top: 4px;
+            
+            .btn-favorite, .btn-subscription {
+                background: none;
+                border: none;
+                font-size: 1.1rem;
+                padding: 8px;
+                margin: 0px 80px;
+                color: white;
+            }
+
+        }
+    }
+}
+
+.favorite {
+    max-width: 1100px;
+    margin: 24px auto;
+    height: 400px;
+    color: black;
+    background-color: $darkWhiteColor;
+}
+
+.subscription {
+    max-width: 1100px;
+    margin: 24px auto;
+    height: 400px;
+    color: black;
+    background-color: $darkWhiteColor;
+
+    .btn-premium-user {
+        @include green-btn;
+        margin-top: 12px;
+    }
 }
