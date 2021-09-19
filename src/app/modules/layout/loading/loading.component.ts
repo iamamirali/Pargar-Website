@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -9,12 +10,21 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class LoadingComponent implements OnInit {
 
   isLoading : boolean | undefined;
+  obs : Subscription | undefined
 
   constructor(private loading : LoadingService) { }
 
   ngOnInit(): void {
-    this.loading.subjectLoader.subscribe((loading) => {
+    this.getLoadingData()
+  }
+
+  getLoadingData() {
+    this.obs = this.loading.subjectLoader.subscribe((loading) => {
       this.isLoading = loading
     })
+  }
+
+  ngOnDestroy() {
+    this.obs?.unsubscribe()
   }
 }

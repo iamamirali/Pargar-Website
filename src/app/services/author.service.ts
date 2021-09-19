@@ -10,15 +10,10 @@ import { catchError } from 'rxjs/operators';
 export class AuthorService {
 
   isSignClicked : boolean = false
-
   isLoggedIn : boolean = false
-
   userNickname : string = ''
-
   subjectLoginStatus : Subject<boolean> = new Subject();
-
   subjectSignClick : Subject<boolean> = new Subject();
-
   subjectNickname : Subject<string> = new Subject();
   
   constructor(private http : HttpClient) {

@@ -23,16 +23,16 @@ export class HomeProductsComponent implements OnInit {
     "prevArrow": '<div style=\'position: absolute; top: 35%; left: -28px; z-index: 1; cursor: pointer; font-size: 3.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
     "infinite": false,
     "rtl": true,
-    // "autoplay": true,
-    // "autoplaySpeed": 7000,
-    // "centerMode": true,
   };
 
   ngOnInit(): void {
+    this.getHomeProducts()
+  }
+
+  getHomeProducts() {
     this.dataFetch.getHomeData().subscribe((data)=> {
       this.sectionList = data.homeitem
       console.log(data.homeitem);
-      
     })
   }
 

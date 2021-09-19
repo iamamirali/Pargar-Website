@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorService } from 'src/app/services/author.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login-box',
@@ -10,37 +11,32 @@ import { Router } from '@angular/router';
 export class LoginBoxComponent implements OnInit {
 
   isClicked : boolean = false
-
   hasError : boolean = false
-
   userNickname : string = ''
-
   mobileNumber: number | undefined
-
   mobileNumError : string = ''
-
   isCodeSent: boolean = false
-
   authCode: number | undefined
-
   authCodeError: string = ''
+  obs : Subscription | undefined
 
   constructor(private auth : AuthorService, private router : Router) { }
 
   ngOnInit(): void {
-    // shows login box if the user clicks login btn
-    this.auth.subjectSignClick.subscribe((status) => {
+    this.getSignUpBtnClickStatus()
+  }
+
+  getSignUpBtnClickStatus() {
+    this.obs = this.auth.subjectSignClick.subscribe((status) => {
       this.isClicked = status
     })
   }
 
-  // hides login box by clicking close btn
   onCloseBtnClick() {
     this.isClicked = false
   }
 
 
-  // sets post number request, after clicking btn
   onReceiveCodeClick() {
     this.auth.sendMobileNum(this.mobileNumber).subscribe((data)=> {
       if(data.message) {
@@ -55,7 +51,6 @@ export class LoginBoxComponent implements OnInit {
     )
   }
 
-  // sets authentication code to request, after clicking btn
   onSendCodeClick() {
     this.auth.sendAuthCode(this.mobileNumber, this.authCode).subscribe((data) => {
       this.auth.setToken(data.token)
@@ -66,8 +61,11 @@ export class LoginBoxComponent implements OnInit {
         this.authCodeError = error
       }
     })
-
     this.auth.getNickname(this.userNickname)
+  }
+
+  ngOnDestroy() {
+    this.obs?.unsubscribe()
   }
 
 }

@@ -14,10 +14,12 @@ export class HomeNavLinksComponent implements OnInit {
   constructor(private dataFetch : DataProccessService) { }
 
   ngOnInit(): void {
+    this.getHomeNavLinks()
+  }
+  
+  getHomeNavLinks() {
     this.dataFetch.getNavChildren().subscribe((data) => {
       this.navbarLinks = data
-      console.log(data);
     })
   }
-
 }

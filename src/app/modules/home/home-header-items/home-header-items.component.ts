@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Avatar, Headeritem } from 'src/app/models/home.model';
+import { Headeritem } from 'src/app/models/home.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 export class HomeHeaderItemsComponent implements OnInit {
 
   headerList : Headeritem[] = []
-
   headerAvatars : string[] = []
 
   constructor(private dataFetch : DataProccessService) {
@@ -30,6 +29,10 @@ export class HomeHeaderItemsComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.getHeaderItems()
+  }
+  
+  getHeaderItems() {
     this.dataFetch.getHomeData().subscribe((data) => {
         this.headerList = data.headeritem
     })

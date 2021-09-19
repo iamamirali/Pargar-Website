@@ -1,21 +1,8 @@
 @import './../../../../assets/styles/style.scss';
 
-// $whiteNgray-bg: #f1f1f1;
-
-// .home-products-container {
-//     max-width: 1200px;
-//     margin: auto;
-// }
-
 .home-products{
     max-width: 1200px;
     margin: auto;
-}
-
-.next-slide {
-    font-size: 4rem;
-    background-color: red;
-    color: green;
 }
 
 .normal-product {
@@ -48,14 +35,3 @@
         }
     }
 }
-
-// .product-item {
-//     padding: 12px;
-//     margin: 5px;
-//     background-color: white;
-//     border-radius: 12px;
-
-//     .product-img {
-//         width: 100%;
-//     }
-// }
