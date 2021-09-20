@@ -9,14 +9,27 @@ $greenColor: #37b34a;
 }
 
 .btn-close {
-    position: absolute;
-    top: 10%;
-    left: 80%;
+    position: fixed;
+    width: 100vw;
+    z-index: 901;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: none;
-    font-size: 5rem;
     border: none;
     color: rgb(71, 71, 71);
+    background-color: rgba(59, 59, 59, 0.61);
 }
+// .btn-close {
+//     position: absolute;
+//     top: 10%;
+//     left: 80%;
+//     background: none;
+//     font-size: 5rem;
+//     border: none;
+//     color: rgb(71, 71, 71);
+// }
 
 .btn-close:hover {
     color: #c7c7c7;
@@ -24,19 +37,24 @@ $greenColor: #37b34a;
 
 .input-container {
     display: flex;
+    // position: fixed;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgba(59, 59, 59, 0.61);
+    width: 100vw;
+    // background-color: rgba(59, 59, 59, 0.61);
     justify-content: center;
     align-items: center;
+    z-index: 900;
     
     .form-container {
         display: flex;
+        position: fixed;
         flex-direction: column;
         background-color: white;
-        width: 30%;
+        width: 400px;
         padding: 20px;
         border-radius: 5px;
+        z-index: 902;
 
         label {
             text-align: right;
@@ -81,6 +99,13 @@ $greenColor: #37b34a;
         .btn-receive-code:hover {
             background-color: white;
             color: $greenColor;
+        }
+
+        .btn-send-again {
+            color: $greenColor;
+            margin-top: 8px;
+            background: none;
+            border: none;
         }
 
         .errorMsg {
