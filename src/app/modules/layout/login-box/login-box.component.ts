@@ -79,6 +79,10 @@ export class LoginBoxComponent implements OnInit {
     })
   }
 
+  onSendAgainClick() {
+    this.isCodeSent = false
+  }
+
   ngOnDestroy() {
     this.obs?.unsubscribe()
   }

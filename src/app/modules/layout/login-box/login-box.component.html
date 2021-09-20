@@ -17,6 +17,7 @@
             <input type="text" id="signup" placeholder="نام نمایشی شما"  [(ngModel)] = 'userNickname'>
             <p class="errorMsg" *ngIf = 'hasError'>{{ authCodeError }}</p>
             <button type="submit" class='btn-receive-code' (click) = 'onSendCodeClick()'>ورود به پرگار</button>
+            <button class="btn-send-again" (click)='onSendAgainClick()'>ارسال مجدد کد تایید</button>
         </div>
     </div>
 </div>

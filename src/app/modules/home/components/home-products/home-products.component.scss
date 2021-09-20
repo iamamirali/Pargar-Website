@@ -37,6 +37,34 @@
             position: absolute;
             bottom: 0px;
             font-family: "iran-sans";
+
+            .product-rating {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                width: 260px;
+                
+                .star-ranking-container {
+                    display: flex;
+
+                    .green-star {
+                        position: absolute;
+                        left: 0%;
+                        top: 6px;
+                        color: $greenColor;
+                        z-index: 5;
+                        font-size: 11px;
+                    }
+                    .gray-star {
+                        position: absolute;
+                        left: 0%;
+                        top: 6px;
+                        color: $lightGrayColor;
+                        z-index: 4;
+                        font-size: 11px;
+                    }
+                }
+            }
     
             p {
                 font-size: 12px;
@@ -65,7 +93,7 @@
 
 .single-feature-container {
     padding: 24px;
-    background-color: $milkyColor;
+    background-color: white;
     border-radius: 8px;
     box-shadow: $productBoxShadow;
     margin: {
@@ -117,10 +145,31 @@
 
                 .product-rating {
                     display: flex;
+                    position: relative;
                     font-size: 14px;
-                    justify-content: space-between;
                     margin-top: 24px;
                     color: $grayColor;
+
+                    .star-ranking-container {
+                        display: flex;
+
+                        .green-star {
+                            position: absolute;
+                            left: 60%;
+                            top: -3px;
+                            color: $greenColor;
+                            z-index: 5;
+                            font-size: 16px;
+                        }
+                        .gray-star {
+                            position: absolute;
+                            left: 60%;
+                            top: -3px;
+                            color: $lightGrayColor;
+                            z-index: 4;
+                            font-size: 16px;
+                        }
+                    }
                 }
             }
         }

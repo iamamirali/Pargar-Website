@@ -1,3 +1,4 @@
+import { NgIterable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Homeitem } from 'src/app/models/home.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
@@ -45,6 +46,15 @@ export class HomeProductsComponent implements OnInit {
       this.sectionList = data.homeitem
       console.log(data.homeitem);
     })
+  }
+
+  getProductRank(product : any) : NgIterable<any> | null | undefined {
+    const rankCounter : number[] = []
+        for(let i = 0; i < Math.ceil(product.rank); i++) {
+          rankCounter.push(i)
+        }
+        
+        return rankCounter
   }
 
 }

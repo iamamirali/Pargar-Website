@@ -11,13 +11,22 @@
                             <p>{{ product.producer_name }}</p>
                             <div class="product-rating">
                                 <p><i class="far fa-eye"></i> {{product.total_view}}</p>
+                                <div class="star-ranking-container">
+                                    <div class="gray-star">
+                                        <i class="fas fa-star" *ngFor='let grayStar of [1,2,3,4,5]'></i>
+                                    </div>
+    
+                                    <div class="green-star">
+                                        <i class="fas fa-star" *ngFor='let star of getProductRank(product)'></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </ngx-slick-carousel>
         </div>
-
+        
         <div class="multi-feature-container">
             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="multiFeatureSlider" *ngIf='item.row_type == "feature" && item.products.length > 1'>
                 <div ngxSlickItem  class="slide" *ngFor="let product of item.products">
@@ -42,6 +51,15 @@
                         <p>{{ product.producer_name }}</p>
                         <div class="product-rating">
                             <p><i class="far fa-eye"></i> {{product.total_view}}</p>
+                            <div class="star-ranking-container">
+                                <div class="gray-star">
+                                    <i class="fas fa-star" *ngFor='let grayStar of [1,2,3,4,5]'></i>
+                                </div>
+
+                                <div class="green-star">
+                                    <i class="fas fa-star" *ngFor='let star of getProductRank(product)'></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
