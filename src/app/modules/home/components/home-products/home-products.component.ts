@@ -14,8 +14,19 @@ export class HomeProductsComponent implements OnInit {
 
   constructor(private dataFetch : DataProccessService) { }
 
-  slideConfig = {
+  normalSlider = {
     "slidesToShow": 4,
+    "slidesToScroll": 1,
+    "dots": false,
+    "arrows": true,
+    "nextArrow": '<div style=\'position: absolute; top: 35%; right: -28px; cursor: pointer; font-size: 3.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+    "prevArrow": '<div style=\'position: absolute; top: 35%; left: -28px; z-index: 1; cursor: pointer; font-size: 3.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+    "infinite": true,
+    "rtl": true,
+  };
+  
+  multiFeatureSlider = {
+    "slidesToShow": 3,
     "slidesToScroll": 1,
     "dots": false,
     "arrows": true,

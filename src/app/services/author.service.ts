@@ -31,14 +31,8 @@ export class AuthorService {
     this.subjectNickname.next(this.userNickname)
   }
 
-  sendMobileNum(mobile:number | undefined) {
-    return this.http.post<any>('https://api.vasapi.click/mobile_login_step1/7', 
-      {
-        "mobile": `${mobile}`,
-        "device_os":"angularJS",
-        "device_id":"Desktop",
-        "device_model":"browser"
-    })  
+  sendMobileNum(data : object) {
+    return this.http.post<any>('https://api.vasapi.click/mobile_login_step1/7', data)  
       .pipe(
         catchError( error => {
           let errorMsg = '!خطا در  دریافت اطلاعات';
@@ -53,14 +47,8 @@ export class AuthorService {
       )
     }
 
-  sendAuthCode(mobile: number | undefined, authCode:number | undefined) {
-    return this.http.post<any>('https://api.vasapi.click/mobile_login_step2/7', 
-    {
-      "mobile": `${mobile}`,
-      "device_id":"Desktop",
-      "verification_code":`${authCode}`,
-      "nickname":""
-    })
+  sendAuthCode(data : object) {
+    return this.http.post<any>('https://api.vasapi.click/mobile_login_step2/7', data)
     .pipe(
       catchError(error => {
         error = '!کد نادرست است'

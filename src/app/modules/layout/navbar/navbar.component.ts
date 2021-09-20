@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavChildrenRootObject } from 'src/app/models/nav-children.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 import { AuthorService } from 'src/app/services/author.service';
+import { TopBannerService } from 'src/app/services/top-banner.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,14 +17,22 @@ export class NavbarComponent implements OnInit {
   userAvatar : string = ''
   isCategoryClicked : boolean = false
   isChildLinkClicked : boolean = false
-  obs : Subscription | undefined
+  bannerStatus : boolean | undefined
+  obs : Subscription[] = []
 
-  constructor(private dataFetch : DataProccessService, private auth : AuthorService) { }
+  constructor(private dataFetch : DataProccessService, private auth : AuthorService, private bannerService : TopBannerService) { }
 
   ngOnInit(): void {
     this.getNavChildItems()
     this.getUserLoginStatus()
     this.setUserAvatar()
+    this.getBannerStatus()
+  }
+
+  getBannerStatus() {
+    this.obs[0] = this.bannerService.subjectShowBanner.subscribe((status) => {
+      this.bannerStatus = status
+    })
   }
 
   getNavChildItems() {
@@ -33,7 +42,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getUserLoginStatus() {
-    this.obs = this.auth.subjectLoginStatus.subscribe((status) =>{
+    this.obs[1] = this.auth.subjectLoginStatus.subscribe((status) =>{
       this.isLoggedIn = status
     })
   }
@@ -51,6 +60,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.obs?.unsubscribe()
+    this.obs.forEach((item) => {
+      item.unsubscribe()
+    })
   }
 }

@@ -1,12 +1,10 @@
-<div class="navlinks-container">
+<div class="navlinks-container" [ngStyle]="{'top': bannerStatus ? '127px' : '70px'}">
     <div class="navlinks-list">
         <ul *ngFor='let category of navbarLinks'>
             <div *ngIf='category.is_visible' class="navlinks-item">
-                <!-- <div class="parent-links-container"> -->
                     <a href="" >
                         {{ category.title }}
                     </a>
-                <!-- </div> -->
 
                 <ul class="child-links-container">
                     <li class="nav-child-item" *ngFor='let childLink of category.childs'>

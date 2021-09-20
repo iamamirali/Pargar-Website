@@ -38,7 +38,14 @@ export class LoginBoxComponent implements OnInit {
 
 
   onReceiveCodeClick() {
-    this.auth.sendMobileNum(this.mobileNumber).subscribe((data)=> {
+    const dataToPost = {
+      "mobile": `${this.mobileNumber}`,
+      "device_os":"angularJS",
+      "device_id":"Desktop",
+      "device_model":"browser"
+  }
+    
+    this.auth.sendMobileNum(dataToPost).subscribe((data)=> {
       if(data.message) {
         this.isCodeSent = true
       }
@@ -52,8 +59,16 @@ export class LoginBoxComponent implements OnInit {
   }
 
   onSendCodeClick() {
-    this.auth.sendAuthCode(this.mobileNumber, this.authCode).subscribe((data) => {
+    const dataToPost = {
+      "mobile": `${this.mobileNumber}`,
+      "device_id":"Desktop",
+      "verification_code":`${this.authCode}`,
+      "nickname": `${this.userNickname}`
+    }
+    
+    this.auth.sendAuthCode(dataToPost).subscribe((data) => {
       this.auth.setToken(data.token)
+      this.onCloseBtnClick()
       this.router.navigate(['/profile'])
     }, (error) => {
       if(error) {

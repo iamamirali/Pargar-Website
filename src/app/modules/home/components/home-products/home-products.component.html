@@ -1,0 +1,51 @@
+<div class="home-products-container">
+    <div *ngFor="let item of sectionList" class="home-products">
+        <div class="normal-product-container">
+            <h3 *ngIf='item.row_type == "normal" && item.products.length > 0'>{{item.title}}</h3>
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="normalSlider" *ngIf='item.row_type == "normal"'>
+                <div ngxSlickItem  class="slide" *ngFor="let product of item.products">
+                    <div class="normal-product">
+                        <img class="product-img" src="{{ product.feature_avatar.hdpi }}" alt="{{ product.name }}" width="100%">
+                        <h5 class="product-title">{{ product.name}}</h5>
+                        <div class="product-extra-info">
+                            <p>{{ product.producer_name }}</p>
+                            <div class="product-rating">
+                                <p><i class="far fa-eye"></i> {{product.total_view}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div class="multi-feature-container">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="multiFeatureSlider" *ngIf='item.row_type == "feature" && item.products.length > 1'>
+                <div ngxSlickItem  class="slide" *ngFor="let product of item.products">
+                    <div class="multi-feature-product">
+                        <img class="product-img" src="{{ product.feature_avatar.hdpi }}" alt="{{ product.name }}">
+                        <h3 class="product-title">{{ product.name}}</h3>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        
+        <div class="single-feature-container" *ngIf='item.row_type == "feature" && item.products.length  == 1'>
+            <div class="single-feature-product" *ngFor="let product of item.products">
+                <div class="product-img-container">
+                    <img class="product-img" src="{{ product.feature_avatar.hdpi }}" alt="{{ product.name }}">
+                </div>
+                
+                <div class="product-content">
+                    <h2 class="product-title">{{ product.name}}</h2>
+                    <p class='product-description'>{{ product.description }}</p>
+                    <div class="product-extra-info">
+                        <p>{{ product.producer_name }}</p>
+                        <div class="product-rating">
+                            <p><i class="far fa-eye"></i> {{product.total_view}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

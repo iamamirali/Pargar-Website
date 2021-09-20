@@ -1,4 +1,4 @@
-@import './../../../../assets/styles/style.scss';
+@import './../../../../../assets/styles/style.scss';
 
 
 .navlinks-container {
@@ -8,8 +8,7 @@
     position: -webkit-sticky;
     top: 70px;
     margin-bottom: 20px;
-    z-index: 1000;
-    // height: 50px;
+    z-index: 10;
 
     .navlinks-list{
         display: flex;
