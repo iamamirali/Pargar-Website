@@ -148,6 +148,7 @@
 
 .navbar-left-side {
   @extend .navbar-right-side;
+  padding-left: 80px;
 
   .btn-teaching {
     @include green-btn-outline;
@@ -225,6 +226,40 @@
     background: none;
     color: $greenColor;
   }
+  
+  .profile-dropdown {
+    @extend .myAccount-dropdown;
+    
+    .dropdown-items {
+      display: none;
+      position: absolute;
+      right: -48px;
+      background-color: #f8f8f8;
+      text-align: right;
+      width: 100px;
+      padding: 10px;
+      box-shadow: 0px 5px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-user-avatar {
+      background: none;
+      border-style: none;
+      margin-top: 4px;
+  
+      img {
+        width: 30px;
+      }
+    }
+  }
+
+  .profile-dropdown:hover .dropdown-items {
+    display: block;
+  }
+
+  .profile-dropdown:hover .btn-myAccount {
+    background: none;
+    color: $greenColor;
+  }
 
   .btn-subscribe {
     @include green-btn;
@@ -240,16 +275,5 @@
     @include green-btn-outline;
     height: 35px;
     width: 130px
-  }
-
-  .btn-user-avatar {
-    background: none;
-    border-style: none;
-    margin-right: 20px;
-    margin-top: 4px;
-
-    img {
-      width: 30px;
-    }
   }
 }

@@ -1,4 +1,4 @@
-<div *ngIf='showBanner' class="banner-container">
+<div *ngIf='showBanner && !isLoggedIn' class="banner-container">
     <div class="banner-content">
         <button (click)='onCloseBtnClick()' class="btn-close">x</button>
         

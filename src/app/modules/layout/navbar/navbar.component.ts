@@ -54,9 +54,15 @@ export class NavbarComponent implements OnInit {
       })
     }
   }
+  
 
   onSignClick() {
     this.auth.toggleSign(true)
+  }
+
+  onLogoutClick() {
+    this.auth.subjectLoginStatus.next(false)
+    this.auth.setToken('')
   }
 
   ngOnDestroy() {

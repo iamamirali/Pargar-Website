@@ -47,17 +47,30 @@
             <a href="http://panel.pargar.ir/">در پرگار درس بدهید</a>
         </button>
 
-        <div *ngIf = '!isLoggedIn' class="myAccount-dropdown">
+        <div *ngIf='!isLoggedIn' class="myAccount-dropdown">
             <button class="btn-myAccount">حساب من <i class="fas fa-angle-down"></i></button>
             <div class="dropdown-items">
                 <a (click) = 'onSignClick()'>ورود/ثبت نام رایگان</a>
                 <br>
-                <a href="#">کد هدیه</a>
+                <a (click) = 'onSignClick()'>کد هدیه</a>
             </div>
         </div>
 
         <button *ngIf = 'isLoggedIn' class="btn-subscribe">کاربر اشتراکی شوید</button>
 
-        <button *ngIf = 'isLoggedIn' class="btn-user-avatar" [routerLink]="['/profile']"><img [src]='userAvatar' alt=""></button>
+        <div class="profile-dropdown" *ngIf='isLoggedIn'>
+            <button class="btn-user-avatar"><img [src]='userAvatar' alt=""></button>
+            <div class="dropdown-items">
+                <a [routerLink]="['/profile']">پروفایل</a>
+                <br>
+                <a>کد هدیه</a>
+                <br>
+                <a>راهنما</a>
+                <br>
+                <a (click)='onLogoutClick()' [routerLink]="['/']">خروج از پرگار</a>
+            </div>
+        </div>
+
     </div>
 </nav>
+<!-- [routerLink]="['/profile']" -->

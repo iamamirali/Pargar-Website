@@ -70,13 +70,13 @@ export class LoginBoxComponent implements OnInit {
       this.auth.setToken(data.token)
       this.onCloseBtnClick()
       this.router.navigate(['/profile'])
+      this.auth.getNickname(this.userNickname)
     }, (error) => {
       if(error) {
         this.hasError = true
         this.authCodeError = error
       }
     })
-    this.auth.getNickname(this.userNickname)
   }
 
   ngOnDestroy() {

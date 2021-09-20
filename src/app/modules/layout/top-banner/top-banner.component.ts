@@ -11,17 +11,28 @@ import { TopBannerService } from 'src/app/services/top-banner.service';
 export class TopBannerComponent implements OnInit {
 
   showBanner : boolean | undefined
-  obs : Subscription | undefined
+  isLoggedIn : boolean | undefined
+  obs : Subscription[] = []
 
   constructor(private auth : AuthorService, private bannerService : TopBannerService) { }
 
   ngOnInit(): void {
     this.getBannerStatus()
+    this.getLoginStatus()
   }
 
   getBannerStatus() {
-    this.obs = this.bannerService.subjectShowBanner.subscribe((status) => {
+    this.obs[0] = this.bannerService.subjectShowBanner.subscribe((status) => {
       this.showBanner = status
+    })
+  }
+
+  getLoginStatus() {
+    this.obs[1] = this.auth.subjectLoginStatus.subscribe((status) => {
+      this.isLoggedIn = status
+      if(status) {
+        this.bannerService.subjectShowBanner.next(false)
+      }
     })
   }
 
@@ -34,7 +45,9 @@ export class TopBannerComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.obs?.unsubscribe()
+    this.obs.forEach((item) => {
+      item.unsubscribe()
+    })
   }
 
 }

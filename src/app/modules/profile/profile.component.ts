@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
       this.userAvatar = data.avatar
     })
   }
-
+  
   setUserNickname () {
     this.obs = this.auth.subjectNickname.subscribe((nickname) => {
       this.userNickname = nickname

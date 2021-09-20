@@ -2,8 +2,10 @@
     <div class="profile-container">
         <div class="profile-info-container">
             <div class="profile-info">
-                <img [src]="userAvatar" alt="avatar" class="profile-avatar">
-                <h2 class="user-nickname">{{ userNickname }}</h2>
+                <div class="profile-avatar-container">
+                    <img [src]="userAvatar" alt="avatar" class="profile-avatar">
+                </div>
+                <h1 class="user-nickname">{{ userNickname }}</h1>
             </div>
 
             <div class="profile-action-btns">

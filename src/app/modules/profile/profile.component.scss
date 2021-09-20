@@ -14,10 +14,22 @@
             justify-content: space-between;
 
             .profile-info {
-                .profile-avatar {
-                    width: 80px;
-                    margin: 12px 24px 12px 8px;
+                display: flex;
+                position: relative;
+
+                .user-nickname {
+                    position: absolute;
+                    top: 30px;
+                    right: 120px;
                 }
+
+                .profile-avatar-container {
+                    .profile-avatar {
+                        width: 80px;
+                        margin: 12px 24px 12px 8px;
+                    }
+                }
+                
             }
 
             .profile-action-btns {

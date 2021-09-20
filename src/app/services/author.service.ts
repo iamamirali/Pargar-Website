@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class AuthorService {
   userNickname : string = ''
   subjectLoginStatus : Subject<boolean> = new Subject();
   subjectSignClick : Subject<boolean> = new Subject();
-  subjectNickname : Subject<string> = new Subject();
+  subjectNickname = new BehaviorSubject<string>('');
   
   constructor(private http : HttpClient) {
     this.subjectLoginStatus.next(this.isLoggedIn)
@@ -26,9 +26,8 @@ export class AuthorService {
     this.subjectSignClick.next(this.isSignClicked)
   }
 
-  getNickname(name : string) {
-    this.userNickname = name
-    this.subjectNickname.next(this.userNickname)
+  getNickname(nickname : string) {
+    this.subjectNickname.next(nickname)
   }
 
   sendMobileNum(data : object) {
